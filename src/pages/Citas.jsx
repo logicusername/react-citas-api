@@ -67,7 +67,7 @@ export function Citas(){
                     return (
                         <div className="datos-paciente">
                             <p className="text-white font-mono mt-1">Nombre:</p>
-                            <input type="text" className="font-mono" defaultValue={dato.name} disabled= "true"/>
+                            <input type="text" className="font-mono" Value={dato.name} disabled= "true"/>
                             <p className="text-white font-mono mt-1">Apellido:</p>
                             <input type="text" className="font-mono" value = {dato.lastname} disabled= "true"/>
                             <p className="text-white font-mono mt-1">Edad:</p>
