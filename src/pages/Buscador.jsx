@@ -41,7 +41,6 @@ export function Buscador(){
                                     <h2 className="text-slate-300  caja">{dato.name}</h2> 
                                     <h2 className="text-slate-300  caja">{dato.lastname}</h2>
                                     <h2 className="text-slate-300  caja">{dato.doctor}</h2>
-                                    <h2 className="text-slate-300  caja">{dato.especialidad}</h2>
                                     <h2 className="text-slate-300  caja">{dato.especialidad}</h2>    
                                     </div>
                                     <hr/>
