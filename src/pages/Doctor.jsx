@@ -24,7 +24,7 @@ export function Doctor(){
         function enviarDatos(){
             // http://127.0.0.1:3010/api/doctor
             
-            fetch("https://node-mongodb-api-sezh.onrender.com/api/doctor",{
+            fetch("https://api-citas.vercel.app/api/doctor",{
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"
@@ -45,7 +45,7 @@ export function Doctor(){
         enviarDatos();
     }
     function cargarDatos(){
-        fetch(`https://node-mongodb-api-sezh.onrender.com/api/getAll/doctor`)
+        fetch(`https://api-citas.vercel.app/api/getAll/doctor`)
             .then((res) => res.json())
             .then(data => setDatos(data))
         return(

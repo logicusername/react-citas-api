@@ -22,7 +22,7 @@ export function Paciente(){
         }
         //fetch para enviar arreglo
         function enviarDatos(){
-            fetch("https://node-mongodb-api-sezh.onrender.com/api/patient",{
+            fetch("https://api-citas.vercel.app/api/patient",{
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"
@@ -44,7 +44,7 @@ export function Paciente(){
     }
         // fetch para obtener todos los datos
     function cargarDatos(){
-        fetch(`https://node-mongodb-api-sezh.onrender.com/api/getAll/patient`)
+        fetch(`https://api-citas.vercel.app/api/getAll/patient`)
             .then((res) => res.json())
             .then(data => setDatos(data))
         return(

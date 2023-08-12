@@ -14,7 +14,7 @@ export function Citas(){
     const [datos,setDatos] = useState([])
 
     function cargarDatos(){
-        fetch(`https://node-mongodb-api-sezh.onrender.com/api/getOne/${cedula}`,{
+        fetch(`https://api-citas.vercel.app/api/getOne/${cedula}`,{
             
         })
             .then((res) => res.json())
@@ -34,7 +34,7 @@ export function Citas(){
         }
         //fetch para enviar arreglo
         function enviarDatos(){
-            fetch("https://node-mongodb-api-sezh.onrender.com/api/cita",{
+            fetch("https://api-citas.vercel.app/api/cita",{
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"

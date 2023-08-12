@@ -6,7 +6,7 @@ export function Buscador(){
     const [datos,setDatos] = useState([])
     
     function obtenerDatos(){
-        fetch(`https://node-mongodb-api-sezh.onrender.com/api/cita/${cedula}`)
+        fetch(`https://api-citas.vercel.app/api/cita/${cedula}`)
             .then((res) => res.json())
             .then(data => setDatos(data))
         return(
