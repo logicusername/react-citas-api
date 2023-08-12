@@ -5,10 +5,16 @@ export function Citas(){
     const [cedula,setCedula] = useState("")
     const [especialidad,setEspecialidad] = useState("")
     const [doctor,setDoctor] = useState("")
+    let [nombre,setNombre] = useState("")
+    let [apellido,setApellido] = useState("")
+    let [edad,setEdad] = useState("")
+    let [telefono,setTelefono] =useState("")
+    // const [botonHabilitado, setBotonHabiliado] = useState(false);
+    // let datosi = document.getElementById("datoscargados")
     const [datos,setDatos] = useState([])
 
     function cargarDatos(){
-        fetch(`http://127.0.0.1:3010/api/getOne/${cedula}`,{
+        fetch(`https://node-mongodb-api-sezh.onrender.com/api/getOne/${cedula}`,{
             
         })
             .then((res) => res.json())
@@ -18,18 +24,17 @@ export function Citas(){
         e.preventDefault();
         //arreglo de datos
         const newCita= {
-            name : datos.name,
-            lastname : datos.lastname,
+            name : nombre,
+            lastname : apellido,
             cedula : cedula,
-            // edad : datos.edad,
-            // telefono : datos.telefono,
+            edad : edad,
+            telefono : telefono,
             doctor : doctor,
             especialidad : especialidad,
-            
         }
         //fetch para enviar arreglo
         function enviarDatos(){
-            fetch("http://127.0.0.1:3010/api/cita",{
+            fetch("https://node-mongodb-api-sezh.onrender.com/api/cita",{
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"
@@ -49,7 +54,23 @@ export function Citas(){
         }
         enviarDatos();
     }
+    let nombres = document.getElementById("nombra")
+    let apellidos = document.getElementById("apellida")
+    let edas = document.getElementById("edada")
+    let telefonos = document.getElementById("telefona")
 
+    function guardarDatos(){
+        setNombre(nombres.value)
+        setApellido(apellidos.value)
+        setEdad(edas.value)
+        setTelefono(telefonos.value)
+    }
+    // function mostrar(){
+    //     console.log(nombre)
+    //     console.log(apellido)
+    //     console.log(edad)
+    //     console.log(telefono)
+    // }
     return (
     <div>
         <div className="display">
@@ -67,15 +88,15 @@ export function Citas(){
                     return (
                         <div className="datos-paciente">
                             <p className="text-white font-mono mt-1">Nombre:</p>
-                            <input type="text" className="font-mono" Value={dato.name} disabled= "true"/>
+                            <input id = "nombra" type="text" className="font-mono" value = {dato.name} disabled="true"/>
                             <p className="text-white font-mono mt-1">Apellido:</p>
-                            <input type="text" className="font-mono" value = {dato.lastname} disabled= "true"/>
+                            <input id = "apellida" type="text" className="font-mono" value = {dato.lastname} disabled= "true"/>
                             <p className="text-white font-mono mt-1">Edad:</p>
-                            <input type="number" className="font-mono" value={dato.edad} disabled= "true"/>
+                            <input id = "edada" type="number" className="font-mono" value={dato.edad} disabled= "true"/>
                             <p className="text-white font-mono mt-1">Telefono:</p>
-                            <input type="number" className="font-mono" value={dato.telefono} disabled= "true" /> <br />
+                            <input id = "telefona" type="number" className="font-mono" value={dato.telefono} disabled= "true" /> <br />
                             <p className="text-white font-mono">digite nombre doctor:</p>
-                            <input onChange={(e) => {setDoctor(e.target.value)}}type="text" className="font-mono" /> <br />
+                            <input onChange={(e) => setDoctor(e.target.value)}type="text" className="font-mono" /> <br />
                             <p className="text-white font-mono mt-1">especialidad:</p>
                                 <select  onChange={(e) => setEspecialidad(e.target.value)} className="font-mono mt-1">
                                     <option value="medicina general">Medicina general</option>
@@ -93,9 +114,12 @@ export function Citas(){
                 })}
                 </div>
                 <div className="datos-paciente">
-                <button type = "submit" className="bg-green-300 px-2 py-1 rounded-md font-mono click">Registrar cita</button><br /> <br />
+                <button type = "button" onClick={guardarDatos} className="bg-green-300 px-2 py-1 rounded-md font-mono click">guardar datos
+                </button><br /><br />
+                {/* <button type = "button" onClick={mostrar} className="bg-green-300 px-2 py-1 rounded-md font-mono click">mostrar</button><br /><br /> */}
+                <button type = "submit" className="bg-green-300 px-2 py-1 rounded-md font-mono click" >Registrar cita</button><br /> <br />
                 </div>    
             </form>
         </div>
     </div>)
-}
+    }

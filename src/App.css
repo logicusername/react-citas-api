@@ -17,8 +17,7 @@ body {
 .etiqueta-contenedor {
     height: 100vh;
     margin-left: 60px;
-    margin-top: -300px;
-    
+    margin-top: -307px;
 }
 .datos-doctor{
     margin-left: 70px;
@@ -68,11 +67,15 @@ hr {
     margin-left: 40px;
     margin-right: 40px;
 }
+.contenedori {
+    margin-left: -20px;
+}
 .click{
     transition: all 0.2 ease;
 }
 .click:active{
     transform: scale(0.96);
 }
+
 
  
